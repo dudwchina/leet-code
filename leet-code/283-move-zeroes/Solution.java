@@ -1,28 +1,21 @@
+
 class Solution {
 	
-	 public void moveZeroes(int[] nums) {
-		for (int i = 0; i < nums.length; i++) {
-			if (i == 0) {
-				int j = i + 1;
-				while (j < nums.length && nums[j] == 0) {
-					j++;
-				}
-				
-				if (j == i + 1) {
-					exchange(i,j);
-				} else {
-					// 交换区间 i+1~j  int n = j-i //要交换长度
-					// 从j+1 ~ j+n
-					int n = j-i;
-					for (int k = i + 1; k <= i + n; k++,j++) {
-						exchange(k,j);
-					}
-					
-				}
+	public void moveZeroes(int[] nums) {
+		int n = nums.length;
+		int index = 0;
+		for (int i = 0; i < n; i++) {
+			int num = nums[i];
+			if (num != 0) {
+				nums[index++] = num;
 			}
+		}
+		
+		while (index < n) {
+			nums[index++] = 0;
 		}	
-	 }
-	
+			
+	}
 	public static void main(String[] args) {
 		
 	}
